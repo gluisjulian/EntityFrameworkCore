@@ -1,5 +1,8 @@
+using eCommerce.API.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
+#region ConfigureService()
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -7,6 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+#endregion
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
